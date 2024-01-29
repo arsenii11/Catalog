@@ -23,7 +23,7 @@ internal class CategoriesViewModel @Inject constructor(
 
   val myResponse: MutableLiveData<CategoryUiState> = MutableLiveData() //TODO: fix
 
-  fun fetchAccountData() {
+  fun fetchData() {
     _loadingState.value = true
     viewModelScope.launch {
       try {

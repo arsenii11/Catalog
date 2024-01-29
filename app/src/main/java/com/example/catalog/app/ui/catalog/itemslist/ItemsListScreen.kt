@@ -18,7 +18,7 @@ import com.example.catalog.app.ui.catalog.categories.CategoriesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ItemsListFragment : Fragment() {
+class ItemsListScreen : Fragment() {
 
     // Inject OverdueViewModel using Hilt
     private val vm: CategoriesViewModel by viewModels()
