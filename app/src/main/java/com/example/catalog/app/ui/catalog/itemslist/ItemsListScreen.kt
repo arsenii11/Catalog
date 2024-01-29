@@ -17,11 +17,10 @@ import androidx.fragment.app.viewModels
 import com.example.catalog.app.ui.catalog.categories.CategoriesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
+
 class ItemsListScreen : Fragment() {
 
     // Inject OverdueViewModel using Hilt
-    private val vm: CategoriesViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,

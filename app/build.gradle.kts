@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -27,8 +29,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     buildFeatures {
         compose = true
@@ -38,9 +40,13 @@ android {
         useLiveLiterals = true
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
 }
+kapt {
+    correctErrorTypes = true
+}
+
 
 dependencies {
 
@@ -94,6 +100,19 @@ dependencies {
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.19.0")
     implementation("androidx.core:core-splashscreen:1.0.0-alpha01")
 
+    //Hilt
+    implementation ("com.google.dagger:hilt-android:2.50")
+    kapt ("com.google.dagger:hilt-compiler:2.50")
+
+
+// Hilt Navigation Compose integration
+    implementation ("androidx.hilt:hilt-navigation-compose:1.0.0-alpha03")
+
+// Hilt Jetpack Compose integration
+    implementation ("androidx.hilt:hilt-navigation-compose:1.0.0-alpha03")
+
+// Hilt ViewModels for Jetpack Compose
+    implementation ("androidx.hilt:hilt-navigation-compose:1.0.0-alpha03")
 
 // RxJava
     implementation("io.reactivex.rxjava2:rxjava:2.2.21")

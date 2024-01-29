@@ -18,7 +18,7 @@ object CatalogNavigation {
         navGraphBuilder.composable(
             route = CATEGORIES,
         ) {
-            CategoriesScreen(vm = viewModel())
+            CategoriesScreen()
         }
         navGraphBuilder.composable(
             route = ITEMS,

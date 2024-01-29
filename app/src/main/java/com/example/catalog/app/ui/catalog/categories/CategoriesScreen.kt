@@ -30,7 +30,7 @@ import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.catalog.R
-import com.example.catalog.app.ui.catalog.CategoryUiState
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.catalog.app.ui.catalog.categories.CategoriesViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)

@@ -1,9 +1,10 @@
-package net.marcoromano.catalog.app.ui
+package com.example.catalog.app.ui
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.ui.graphics.Color
+import com.example.catalog.app.ui.AppNavHost
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable
@@ -17,4 +18,5 @@ fun AppUi() {
     )
     onDispose {}
   }
+  AppNavHost()
 }
