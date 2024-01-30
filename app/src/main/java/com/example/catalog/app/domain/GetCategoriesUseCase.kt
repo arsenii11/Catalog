@@ -29,7 +29,7 @@ class GetCategoriesUseCase @Inject constructor(private val apiService: CatalogAp
             categories = this.map { categoryData ->
                 CategoriesUiState.Categories.Category(
                     name = categoryData.short_name,
-                    id = categoryData.category_id
+                    url = categoryData.url
                 )
             }
         )

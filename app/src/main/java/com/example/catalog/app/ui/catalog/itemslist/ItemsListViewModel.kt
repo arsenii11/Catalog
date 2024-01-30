@@ -26,11 +26,11 @@ internal class ItemsListViewModel @Inject constructor(
 
     val myResponse: MutableLiveData<ItemsListUiState> = MutableLiveData() //TODO: fix
 
-    fun fetchData() {
+    fun fetchData(categoryId:String) {
         _loadingState.value = true
         viewModelScope.launch {
             try {
-                val response: ItemsListUiState = useCase.invoke()
+                val response: ItemsListUiState = useCase.invoke(categoryId)
                 myResponse.value = response
             } catch (e: Exception) {
                 _errorState.value = "Failed to fetch data"

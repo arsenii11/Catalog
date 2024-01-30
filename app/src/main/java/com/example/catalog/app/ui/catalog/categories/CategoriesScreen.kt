@@ -86,7 +86,7 @@ internal fun CategoriesScreen(navController: NavController) {
             LazyColumn {
              categories.forEach{ listItem ->
                 item {
-                    CategoriesListItem(listItem.name) { navController.navigate("items") }
+                    CategoriesListItem(listItem.name) { navController.navigate("items/${listItem.name}/${listItem.url}") }
                 }
               }
             }
@@ -133,7 +133,7 @@ fun CategoriesListItem(item: String, onItemClicked: () -> Unit) {
 @Composable
 private fun Preview() {
     val navController = rememberNavController()
-  CategoriesScreen(navController = navController )
+  CategoriesScreen(navController = navController)
 }
 
 @Composable

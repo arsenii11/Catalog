@@ -9,9 +9,9 @@ import javax.inject.Singleton
 
 @Singleton
 class GetItemsListUseCase @Inject constructor(private val apiService: CatalogApiClient) {
-suspend operator fun invoke(): ItemsListUiState {
+suspend operator fun invoke(categoryId:String): ItemsListUiState {
         return try {
-            val response = apiService.getItems("177-air-rifle-pellets")
+            val response = apiService.getItems(categoryId)
             if (response.isSuccessful) {
                 response.body()?.gridProducts?.elements?.toItemsListUiState() ?: ItemsListUiState.Error("Empty response")
             } else {

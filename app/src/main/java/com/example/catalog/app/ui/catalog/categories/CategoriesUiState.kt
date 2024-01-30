@@ -7,7 +7,7 @@ sealed class CategoriesUiState {
     ): CategoriesUiState() {
         data class Category(
             val name: String,
-            val id: String
+            val url: String
         )
     }
 

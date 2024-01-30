@@ -1,5 +1,6 @@
 package com.example.catalog.app.ui.catalog.itemslist
 
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -24,26 +25,32 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.catalog.R
 import com.example.catalog.app.ui.catalog.categories.CategoriesListItem
 import com.example.catalog.app.ui.catalog.categories.MyTopAppBar
 import net.marcoromano.catalog.app.ui.catalog.itemslist.ItemsListViewModel
 
-
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun ItemsListScreen(navController: NavController) {
+internal fun ItemsListScreen(navController: NavController, categoryName:String?, categoryId:String?) {
     val vm = hiltViewModel<ItemsListViewModel>()
     val uiState by vm.myResponse.observeAsState()
 
     // Fetch data when the screen is first created
     LaunchedEffect(Unit) {
-        vm.fetchData()
+        try {
+            if (categoryId != null) {
+                vm.fetchData(categoryId)
+            }
+        } catch (e: Exception) {
+            Log.e("YourTag", "Error in LaunchedEffect: ${e.message}", e)
+        }
     }
+
     Scaffold(
         topBar = {
             MyTopAppBar(
-                title = "Items",
+                title = categoryName?:"Items",
                 onNavigateUp = { navController.navigateUp() })
         },
     ) { paddingValues ->

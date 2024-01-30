@@ -26,7 +26,6 @@ internal class CategoriesViewModel @Inject constructor(
   fun fetchData() {
     _loadingState.value = true
     viewModelScope.launch {
-      val response1: CategoriesUiState = useCase.invoke()
       try {
        val response: CategoriesUiState = useCase.invoke()
         myResponse.value = response
