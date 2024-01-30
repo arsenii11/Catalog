@@ -1,4 +1,4 @@
-package net.marcoromano.catalog.app.data.network.model
+package com.example.catalog.app.data.network.model
 
 data class ItemDetailsDO(
     val elements: List<ProductElement>

@@ -1,9 +1,7 @@
 package com.example.catalog.app.domain
 
-import android.util.Log
 import com.example.catalog.app.data.network.api.CatalogApiClient
-import com.example.catalog.app.data.network.model.CategoryDO
-import com.example.catalog.app.data.network.model.ItemsDO
+import com.example.catalog.app.data.network.model.GridProducts
 import com.example.catalog.app.ui.catalog.categories.CategoriesUiState
 import com.example.catalog.app.ui.catalog.itemslist.ItemsListUiState
 import javax.inject.Inject
@@ -11,11 +9,11 @@ import javax.inject.Singleton
 
 @Singleton
 class GetItemsListUseCase @Inject constructor(private val apiService: CatalogApiClient) {
- /*   suspend operator fun invoke(): ItemsListUiState {
+suspend operator fun invoke(): ItemsListUiState {
         return try {
-            val response = apiService.getItems("")
+            val response = apiService.getItems("177-air-rifle-pellets")
             if (response.isSuccessful) {
-                response.body()?.toItemsListUiState() ?: ItemsListUiState.Error("Empty response")
+                response.body()?.gridProducts?.elements?.toItemsListUiState() ?: ItemsListUiState.Error("Empty response")
             } else {
                 ItemsListUiState.Error("Failed to fetch categories")
             }
@@ -24,7 +22,16 @@ class GetItemsListUseCase @Inject constructor(private val apiService: CatalogApi
         }
     }
 
-    private fun ItemsDO.toItemsListUiState(): ItemsListUiState.Item {
-        return  ItemsListUiState.Item( )}*/
+    private fun List<GridProducts.Elements>.toItemsListUiState(): ItemsListUiState.Items {
+        return ItemsListUiState.Items(
+            items = this.map { itemsData ->
+                ItemsListUiState.Items.Item(
+                    title = itemsData.gridItemName,
+                    imageLink = itemsData.primaryImage,
+                    price = itemsData.price
+                )
+            }
+        )
+    }
 
 }

@@ -13,8 +13,7 @@ fun AppNavHost() {
     navController = navController,
     startDestination = CatalogNavigation.CATEGORIES,
     modifier = Modifier.fillMaxSize(),
-    route = "mainGraph",
   ) {
-    CatalogNavigation.navGraphBuilder(this)
+    CatalogNavigation.navGraphBuilder(this, navController)
   }
 }

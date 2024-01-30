@@ -1,166 +1,180 @@
 package com.example.catalog.app.data.network.model
 
-data class ItemsDO(
-    val products: List<Product>
+import com.google.gson.annotations.SerializedName
+
+
+data class ItemsDO (
+
+    @SerializedName("total"                     ) var total                  : Int?              = null,
+    @SerializedName("filtered"                  ) var filtered               : Int?              = null,
+    @SerializedName("grid_size"                 ) var gridSize               : Int?              = null,
+    @SerializedName("listPageGridType"          ) var listPageGridType       : String?           = null,
+    @SerializedName("directDeals"               ) var directDeals            : ArrayList<String> = arrayListOf(),
+    @SerializedName("buy_direct_products_count" ) var buyDirectProductsCount : Int?              = null,
+    @SerializedName("total_variants"            ) var totalVariants          : Int?              = null,
+    @SerializedName("filtered_variants"         ) var filteredVariants       : Int?              = null,
+    @SerializedName("showRatings"               ) var showRatings            : Boolean?          = null,
+    @SerializedName("enableRatings"             ) var enableRatings          : Boolean?          = null,
+    @SerializedName("enablePriceRange"          ) var enablePriceRange       : Boolean?          = null,
+    @SerializedName("showPriceRange"            ) var showPriceRange         : Boolean?          = null,
+    @SerializedName("enablePriceRangeSlider"    ) var enablePriceRangeSlider : Boolean?          = null,
+    @SerializedName("showPriceRangeSlider"      ) var showPriceRangeSlider   : Boolean?          = null,
+    @SerializedName("showPricePerUomRange"      ) var showPricePerUomRange   : Boolean?          = null,
+    @SerializedName("gridType"                  ) var gridType               : String?           = null,
+    @SerializedName("gridProducts"              ) var gridProducts           : GridProducts?     = GridProducts(),
+    @SerializedName("grid_config"               ) var gridConfig             : GridConfig?       = GridConfig()
+
 )
 
-data class Product(
-    val anchorText: String,
-    val freeShipping: Int,
-    val maxGridSavings: Map<String, Double>,
-    val reviewCount: Int,
-    val isExtraCashback: Boolean,
-    val isBestRated: Int,
-    val productId: Int,
-    val maxFinalSalePrices: Map<String, Double>,
-    val totalVariantCount: Int,
-    val areMinPricesAfterRebate: Map<String, Boolean>,
-    val brand: Brand,
-    val minFinalGridSalePrices: Map<String, Double>,
-    val isSale: Int,
-    val variantCount: Int,
-    val maxSavings: Map<String, Double>,
-    val isCallToOrder: Int,
-    val isNew: Int,
-    val topSpecifications: List<TopSpecification>,
-    val savePercents: Map<String, Int>,
-    val allVariantsAreShed: Boolean,
-    val gridSavePercents: Map<String, Int>,
-    val minFinalSalePricesPerUomNumber: Map<String, Double>,
-    val fullName: String,
-    val isShed: Boolean,
-    val isRebate: Int,
-    val hasFreeGifts: Int,
-    val shortName: String,
-    val minSalePrices: Map<String, Double>,
-    val allVariantsAreOutlet: Boolean,
-    val primaryImage: String,
-    val cashbackPercentage: Int,
-    val minFinalSalePriceUomLabels: Map<String, String>,
-    val hasSellAccessoriesVariants: Boolean,
-    val flags: List<String>,
-    val hasCoupons: Int,
-    val productCode: String,
-    val isDemo: Int,
-    val isBest: Int,
-    val reviewRating: String,
-    val minSavings: Map<String, Int>,
-    val popularity: Double,
-    val maxFinalSalePricesPerUomNumber: Map<String, Double>,
-    val isClearance: Int,
-    val isOrderable: Boolean,
-    val categories: List<Category>,
-    val promos: List<Any>,
-    val minFinalSalePrices: Map<String, Double>,
-    val isSecondDayAir: Int,
-    val areSegmentSalePricesHidden: Map<String, Int>,
-    val isMadeInUsa: Int,
-    val cashbackFlatAmount: Int,
-    val hasOptions: Int,
-    val minGridSavings: Map<String, Int>,
-    val listPrice: Double,
-    val isUsePricePerUomCalculation: Boolean,
-    val url: String,
-    val unorderableTypeId: String,
-    val areSavingsExact: Map<String, Boolean>,
-    val isOutlet: Boolean,
-    val maxSalePrices: Map<String, Double>,
-    val displayMailInRebateGrid: Boolean,
-    val displayInstantRebateGrid: Boolean,
-    val displayCouponInGrid: Boolean,
-    val displayKillerDealInGrid: Boolean,
-    val rebateAmount: Int,
-    val minFinalSalePrice: Double,
-    val minSalePrice: Double,
-    val maxFinalSalePrice: Double,
-    val maxSalePrice: Double,
-    val minFinalGridSalePrice: Double,
-    val isMinPriceAfterRebate: Boolean,
-    val isSegmentSalePriceHidden: Boolean,
-    val whole: String,
-    val cents: String,
-    val wholeTo: String,
-    val centsTo: String,
-    val radEligible: Boolean,
-    val ribbonFlags: List<Any>,
-    val minSaving: Int,
-    val maxSaving: Double,
-    val savePercent: Int,
-    val minGridSaving: Int,
-    val maxGridSaving: Double,
-    val gridSavePercent: Int,
-    val isSavingExact: Boolean,
-    val elementDimensions: ElementDimensions,
-    val hasVideo: Boolean,
-    val imageHeight: String,
-    val imageWidth: String,
-    val stores: List<Any>,
-    val promotion: List<Any>,
-    val bundleData: List<Any>,
-    val isBuyDirect: Boolean,
-    val price: Double,
-    val isPriceAfterRebate: Boolean,
-    val gaEcommerceName: String,
-    val variantCountText: Int,
-    val clearanceVariantCount: Int,
-    val killerDealVariantCount: Int,
-    val matchedVariantCount: Int,
-    val saveAmount: Double,
-    val isSaveExact: Boolean,
-    val savingsText: String,
-    val showAsLowAs: Boolean,
-    val highlightedDescription: List<Any>,
-    val mainCategory: MainCategory,
-    val brandName: String,
-    val categoryName: String,
-    val brandCategories: List<Any>,
-    val id: Int,
-    val specialOffers: Any,
-    val gridItemName: String,
-    val gridName: String,
-    val deals: List<Any>,
-    val canAddReview: Boolean,
-    val canCompare: Boolean,
-    val canAddQna: Boolean,
-    val isMembersOnly: Boolean,
-    val buyQtyLimit: Int,
-    val buyQtyLimitStartAt: Int
+data class ElementDimensions (
+
+    @SerializedName("width"  ) var width  : Int? = null,
+    @SerializedName("height" ) var height : Int? = null
+
 )
 
-data class Brand(
-    val name: String
+data class Values (
+
+    @SerializedName("title" ) var title : String? = null,
+    @SerializedName("uom"   ) var uom   : String? = null
+
 )
 
-data class TopSpecification(
-    val title: String,
-    val count: Int,
-    val slug: String,
-    val specificationId: Int,
-    val values: List<Value>
+data class Brand (
+
+    @SerializedName("name" ) var name : String? = null
+
 )
 
-data class Value(
-    val title: String,
-    val uom: String
+data class TopSpecifications (
+
+    @SerializedName("title"            ) var title           : String?           = null,
+    @SerializedName("count"            ) var count           : Int?              = null,
+    @SerializedName("slug"             ) var slug            : String?           = null,
+    @SerializedName("specification_id" ) var specificationId : Int?              = null,
+    @SerializedName("values"           ) var values          : ArrayList<Values> = arrayListOf()
+
 )
 
-data class Category(
-    val popularity: String,
-    val name: String,
-    val lev: String,
-    val url: String
+data class MainCategory (
+
+    @SerializedName("popularity" ) var popularity : String? = null,
+    @SerializedName("name"       ) var name       : String? = null,
+    @SerializedName("lev"        ) var lev        : String? = null,
+    @SerializedName("url"        ) var url        : String? = null
+
 )
 
-data class ElementDimensions(
-    val width: Int,
-    val height: Int
+data class GridProducts (
+
+    @SerializedName("headingName" ) var headingName : String?             = null,
+    @SerializedName("url"         ) var url         : String?             = null,
+    @SerializedName("elements"    ) var elements    : ArrayList<Elements> = arrayListOf()
+
+){
+    data class Elements (
+
+        @SerializedName("url"                        ) var url                        : String?                      = null,
+        @SerializedName("anchorText"                 ) var anchorText                 : String?                      = null,
+        @SerializedName("elementDimensions"          ) var elementDimensions          : ElementDimensions?           = ElementDimensions(),
+        @SerializedName("fullName"                   ) var fullName                   : String?                      = null,
+        @SerializedName("shortName"                  ) var shortName                  : String?                      = null,
+        @SerializedName("hasVideo"                   ) var hasVideo                   : Boolean?                     = null,
+        @SerializedName("imageHeight"                ) var imageHeight                : String?                      = null,
+        @SerializedName("imageWidth"                 ) var imageWidth                 : String?                      = null,
+        @SerializedName("allVariantsAreOutlet"       ) var allVariantsAreOutlet       : Boolean?                     = null,
+        @SerializedName("allVariantsAreShed"         ) var allVariantsAreShed         : Boolean?                     = null,
+        @SerializedName("stores"                     ) var stores                     : ArrayList<String>            = arrayListOf(),
+        @SerializedName("promotion"                  ) var promotion                  : ArrayList<String>            = arrayListOf(),
+        @SerializedName("bundleData"                 ) var bundleData                 : ArrayList<String>            = arrayListOf(),
+        @SerializedName("hasOptions"                 ) var hasOptions                 : Int?                         = null,
+        @SerializedName("isSegmentSalePriceHidden"   ) var isSegmentSalePriceHidden   : Boolean?                     = null,
+        @SerializedName("isCallToOrder"              ) var isCallToOrder              : Int?                         = null,
+        @SerializedName("isOrderable"                ) var isOrderable                : Boolean?                     = null,
+        @SerializedName("isMadeInUsa"                ) var isMadeInUsa                : Int?                         = null,
+        @SerializedName("isOutlet"                   ) var isOutlet                   : Boolean?                     = null,
+        @SerializedName("isShed"                     ) var isShed                     : Boolean?                     = null,
+        @SerializedName("isBuyDirect"                ) var isBuyDirect                : Boolean?                     = null,
+        @SerializedName("listPrice"                  ) var listPrice                  : Double?                      = null,
+        @SerializedName("price"                      ) var price                      : Double?                      = null,
+        @SerializedName("isPriceAfterRebate"         ) var isPriceAfterRebate         : Boolean?                     = null,
+        @SerializedName("primaryImage"               ) var primaryImage               : String?                      = null,
+        @SerializedName("productCode"                ) var productCode                : String?                      = null,
+        @SerializedName("gaEcommerceName"            ) var gaEcommerceName            : String?                      = null,
+        @SerializedName("reviewCount"                ) var reviewCount                : Int?                         = null,
+        @SerializedName("reviewRating"               ) var reviewRating               : String?                      = null,
+        @SerializedName("variantCount"               ) var variantCount               : Int?                         = null,
+        @SerializedName("variantCountText"           ) var variantCountText           : Int?                         = null,
+        @SerializedName("clearanceVariantCount"      ) var clearanceVariantCount      : Int?                         = null,
+        @SerializedName("killerDealVariantCount"     ) var killerDealVariantCount     : Int?                         = null,
+        @SerializedName("matchedVariantCount"        ) var matchedVariantCount        : Int?                         = null,
+        @SerializedName("savePercent"                ) var savePercent                : Int?                         = null,
+        @SerializedName("saveAmount"                 ) var saveAmount                 : Double?                      = null,
+        @SerializedName("isSaveExact"                ) var isSaveExact                : Boolean?                     = null,
+        @SerializedName("isSavingExact"              ) var isSavingExact              : Boolean?                     = null,
+        @SerializedName("savingsText"                ) var savingsText                : String?                      = null,
+        @SerializedName("showAsLowAs"                ) var showAsLowAs                : Boolean?                     = null,
+        @SerializedName("popularity"                 ) var popularity                 : Double?                      = null,
+        @SerializedName("highlightedDescription"     ) var highlightedDescription     : ArrayList<String>            = arrayListOf(),
+        @SerializedName("topSpecifications"          ) var topSpecifications          : ArrayList<TopSpecifications> = arrayListOf(),
+        @SerializedName("mainCategory"               ) var mainCategory               : MainCategory?                = MainCategory(),
+        @SerializedName("brandName"                  ) var brandName                  : String?                      = null,
+        @SerializedName("categoryName"               ) var categoryName               : String?                      = null,
+        @SerializedName("brand"                      ) var brand                      : Brand?                       = Brand(),
+        @SerializedName("categories"                 ) var categories                 : ArrayList<Category>        = arrayListOf(),
+        @SerializedName("brandCategories"            ) var brandCategories            : ArrayList<String>            = arrayListOf(),
+        @SerializedName("id"                         ) var id                         : Int?                         = null,
+        @SerializedName("productId"                  ) var productId                  : Int?                         = null,
+        @SerializedName("specialOffers"              ) var specialOffers              : SpecialOffers?               = SpecialOffers(),
+        @SerializedName("gridItemName"               ) var gridItemName               : String?                      = null,
+        @SerializedName("gridName"                   ) var gridName                   : String?                      = null,
+        @SerializedName("deals"                      ) var deals                      : ArrayList<String>            = arrayListOf(),
+        @SerializedName("canAddReview"               ) var canAddReview               : Boolean?                     = null,
+        @SerializedName("canCompare"                 ) var canCompare                 : Boolean?                     = null,
+        @SerializedName("canAddQna"                  ) var canAddQna                  : Boolean?                     = null,
+        @SerializedName("isMembersOnly"              ) var isMembersOnly              : Boolean?                     = null,
+        @SerializedName("buyQtyLimit"                ) var buyQtyLimit                : Int?                         = null,
+        @SerializedName("buyQtyLimitStartAt"         ) var buyQtyLimitStartAt         : Int?                         = null,
+        @SerializedName("hasSellAccessoriesVariants" ) var hasSellAccessoriesVariants : Boolean?                     = null
+
+    )
+}
+
+data class SpecialOffers (
+
+    @SerializedName("special_offer_to_type" ) var specialOfferToType : String? = String(),
+    @SerializedName("promotions"            ) var promotions         : ArrayList<String>   = arrayListOf(),
+    @SerializedName("is_mail_in_rebate"     ) var isMailInRebate     : Int?                = null,
+    @SerializedName("is_coupon"             ) var isCoupon           : Int?                = null,
+    @SerializedName("is_second_day_air"     ) var isSecondDayAir     : Int?                = null,
+    @SerializedName("is_clearance"          ) var isClearance        : Int?                = null,
+    @SerializedName("is_instant_rebate"     ) var isInstantRebate    : Int?                = null,
+    @SerializedName("is_sale"               ) var isSale             : Int?                = null,
+    @SerializedName("is_free_gift"          ) var isFreeGift         : Int?                = null,
+    @SerializedName("is_best_rated"         ) var isBestRated        : Int?                = null,
+    @SerializedName("is_new"                ) var isNew              : Int?                = null,
+    @SerializedName("is_seasonal"           ) var isSeasonal         : Int?                = null,
+    @SerializedName("is_outlet"             ) var isOutlet           : Int?                = null,
+    @SerializedName("is_shed"               ) var isShed             : Int?                = null,
+    @SerializedName("is_extra_cashback"     ) var isExtraCashback    : Int?                = null,
+    @SerializedName("is_members_only"       ) var isMembersOnly      : Int?                = null,
+    @SerializedName("is_blazin_deal"        ) var isBlazinDeal       : Int?                = null,
+    @SerializedName("primary"               ) var primary            : String?             = null,
+    @SerializedName("category"              ) var category           : Category?           = Category()
+
 )
 
-data class MainCategory(
-    val popularity: String,
-    val name: String,
-    val lev: String,
-    val url: String
+data class Category (
+
+    @SerializedName("popularity" ) var popularity : String? = null,
+    @SerializedName("name"       ) var name       : String? = null,
+    @SerializedName("lev"        ) var lev        : String? = null,
+    @SerializedName("url"        ) var url        : String? = null
+
 )
 
+data class GridConfig (
 
+    @SerializedName("size" ) var size : Int? = null
+
+)

@@ -1,4 +1,4 @@
-package net.marcoromano.catalog.app.ui.catalog.itemdetails
+package com.example.catalog.app.ui.catalog.itemdetails
 
 class ItemDetailsViewModel {
 }

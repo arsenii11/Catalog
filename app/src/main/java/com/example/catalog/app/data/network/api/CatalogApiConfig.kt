@@ -2,7 +2,7 @@ package com.example.catalog.app.data.network.api
 
 import com.example.catalog.app.data.network.model.CategoryDO
 import com.example.catalog.app.data.network.model.ItemsDO
-import net.marcoromano.catalog.app.data.network.model.ItemDetailsDO
+import com.example.catalog.app.data.network.model.ItemDetailsDO
 import net.marcoromano.catalog.app.data.utilities.Links
 import retrofit2.Response
 import retrofit2.http.*

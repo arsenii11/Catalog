@@ -1,14 +1,21 @@
 package com.example.catalog.app.ui.catalog.categories
 
+import android.content.Context
 import android.content.res.Configuration
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -23,11 +30,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.catalog.R
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.catalog.app.ui.CatalogNavigation
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun CategoriesScreen() {
+internal fun CategoriesScreen(navController: NavController) {
   val vm = hiltViewModel<CategoriesViewModel>()
   val uiState by vm.myResponse.observeAsState()
 
@@ -42,8 +51,8 @@ internal fun CategoriesScreen() {
   ) { paddingValues ->
     Column(
       modifier = Modifier
-        .padding(paddingValues)
-        .fillMaxWidth(),
+          .padding(paddingValues)
+          .fillMaxWidth(),
       horizontalAlignment = Alignment.CenterHorizontally,
       verticalArrangement = Arrangement.Center
     ) {
@@ -54,9 +63,9 @@ internal fun CategoriesScreen() {
 
             // Render your UI based on the list of categories
             LazyColumn {
-             categories.forEachIndexed{ index, listItem ->
+             categories.forEach{ listItem ->
                 item {
-
+                    CategoriesListItem(listItem.name) { navController.navigate("items") }
                 }
               }
             }
@@ -68,7 +77,15 @@ internal fun CategoriesScreen() {
             Text(text = errorMessage)
           }
           else -> {
-            Text(text = "Hello")
+              Box(modifier = Modifier.fillMaxSize()){
+              CircularProgressIndicator(
+                  modifier = Modifier
+                      .padding(16.dp)
+                      .align(Alignment.Center)
+                      .size(50.dp),
+                  color = MaterialTheme.colorScheme.primary
+              )
+          }
           }
         }
 
@@ -82,7 +99,7 @@ fun CategoriesListItem(item: String, onItemClicked: () -> Unit) {
   Row(modifier = Modifier
       .fillMaxWidth()
       .clickable {
-       onItemClicked
+          onItemClicked()
       },
     horizontalArrangement = Arrangement.SpaceBetween,
   ) {
@@ -94,8 +111,8 @@ fun CategoriesListItem(item: String, onItemClicked: () -> Unit) {
 @Preview(name = "Night mode", uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun Preview() {
-  CategoriesScreen(
-  )
+    val navController = rememberNavController()
+  CategoriesScreen(navController = navController )
 }
 
 @Composable
