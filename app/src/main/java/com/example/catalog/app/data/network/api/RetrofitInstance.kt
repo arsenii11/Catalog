@@ -1,4 +1,4 @@
-package net.marcoromano.catalog.app.data.network.api
+package com.example.catalog.app.data.network.api
 
 import net.marcoromano.catalog.app.data.utilities.Links
 import retrofit2.Retrofit

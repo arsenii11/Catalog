@@ -1,16 +1,14 @@
-package net.marcoromano.catalog.app.data.network.di
+package com.example.catalog.app.data.network.di
 
-import net.marcoromano.catalog.app.data.network.api.CatalogApiClient
-import net.marcoromano.catalog.app.data.network.api.CatalogApiManager
+import com.example.catalog.app.data.network.api.CatalogApiClient
+import com.example.catalog.app.data.network.api.CatalogApiManager
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import net.marcoromano.catalog.app.data.network.api.CatalogApiConfig
-import net.marcoromano.catalog.app.data.network.api.RetrofitInstance
+import com.example.catalog.app.data.network.api.RetrofitInstance
 import net.marcoromano.catalog.app.domain.GetCategoriesUseCase
-import retrofit2.Retrofit
 import javax.inject.Singleton
 
 

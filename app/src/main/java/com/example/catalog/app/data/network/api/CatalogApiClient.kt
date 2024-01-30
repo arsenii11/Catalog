@@ -1,32 +1,33 @@
-package net.marcoromano.catalog.app.data.network.api
+package com.example.catalog.app.data.network.api
 
-import net.marcoromano.catalog.app.data.network.model.CategoryDO
-import net.marcoromano.catalog.app.data.network.model.ItemsDO
-import net.marcoromano.catalog.app.data.utilities.Links
+import android.util.Log
+import com.example.catalog.app.data.network.model.CategoryDO
+import com.example.catalog.app.data.network.model.ItemsDO
+import net.marcoromano.catalog.app.data.network.model.ItemDetailsDO
 import retrofit2.Response
 import javax.inject.Inject
 import javax.inject.Singleton
 
 
 interface CatalogApiClient {
-    suspend fun getCategories(): Response<CategoryDO>
-    suspend fun getItems(token: String): List<ItemsDO>
-    suspend fun getItemData(token: String, itemId: String): ItemsDO
+    suspend fun getCategories():  Response<List<CategoryDO>>
+    suspend fun getItems(identifier: String): Response<ItemsDO>
+    suspend fun getItemData(identifier: String): Response<ItemDetailsDO>
 }
 
 @Singleton
 class CatalogApiManager @Inject constructor(
     private val retrofitRequest: RetrofitInstance,
 ) : CatalogApiClient {
-    override suspend fun getCategories(): Response<CategoryDO> {
+    override suspend fun getCategories(): Response<List<CategoryDO>> {
         return retrofitRequest.api.getCategories()
     }
 
-    override suspend fun getItems(token: String): List<ItemsDO> {
-        TODO("Not yet implemented")
+    override suspend fun getItems(identifier: String): Response<ItemsDO> {
+        return retrofitRequest.api.getItems(identifier = identifier)
     }
 
-    override suspend fun getItemData(token: String, itemId: String): ItemsDO {
-        TODO("Not yet implemented")
+    override suspend fun getItemData(identifier: String): Response<ItemDetailsDO>{
+      return retrofitRequest.api.getItemData(identifier = identifier)
     }
 }

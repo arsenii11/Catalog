@@ -1,10 +1,6 @@
-package net.marcoromano.catalog.app.data.network.model
+package com.example.catalog.app.data.network.model
 
-data class CategoryDO (
-    val categories: List<CategoryData>
-)
-
-data class CategoryData(
+data class CategoryDO(
     val category_id: String,
     val short_name: String,
     val full_name: String,

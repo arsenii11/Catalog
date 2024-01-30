@@ -13,16 +13,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import com.example.catalog.app.ui.catalog.categories.CategoriesViewModel
-import dagger.hilt.android.AndroidEntryPoint
 
 
 class ItemDetailsFragment : Fragment() {
 
     // Inject OverdueViewModel using Hilt
-
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

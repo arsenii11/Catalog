@@ -1,10 +1,10 @@
-package com.example.catalog.app.ui.catalog
+package com.example.catalog.app.ui.catalog.categories
 
-sealed class CategoryUiState {
+sealed class CategoriesUiState {
 
     data class Categories(
         val categories: List<Category>
-    ): CategoryUiState() {
+    ): CategoriesUiState() {
         data class Category(
             val name: String,
             val id: String
@@ -13,5 +13,5 @@ sealed class CategoryUiState {
 
     data class Error(
         val errorMessage: String
-    ) : CategoryUiState()
+    ) : CategoriesUiState()
 }
