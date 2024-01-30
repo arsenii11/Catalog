@@ -27,7 +27,6 @@ internal class CategoriesViewModel @Inject constructor(
     _loadingState.value = true
     viewModelScope.launch {
       val response1: CategoriesUiState = useCase.invoke()
-      Log.d("NetworkResponse", "Response: $response1")
       try {
        val response: CategoriesUiState = useCase.invoke()
         myResponse.value = response

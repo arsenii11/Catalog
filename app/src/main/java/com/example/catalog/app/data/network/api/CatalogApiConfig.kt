@@ -18,7 +18,7 @@ interface CatalogApiConfig {
     @GET(Links.LIST_URL)
     suspend fun getItems(
         @Header("x-apikey") token: String = Links.API_KEY,
-        @Header("identifier") identifier: String,
+        @Path("identifier") identifier: String
     ): Response<ItemsDO>
 
 

@@ -125,10 +125,8 @@ data class GridProducts (
         @SerializedName("brandCategories"            ) var brandCategories            : ArrayList<String>            = arrayListOf(),
         @SerializedName("id"                         ) var id                         : Int?                         = null,
         @SerializedName("productId"                  ) var productId                  : Int?                         = null,
-        @SerializedName("specialOffers"              ) var specialOffers              : SpecialOffers?               = SpecialOffers(),
-        @SerializedName("gridItemName"               ) var gridItemName               : String?                      = null,
         @SerializedName("gridName"                   ) var gridName                   : String?                      = null,
-        @SerializedName("deals"                      ) var deals                      : ArrayList<String>            = arrayListOf(),
+        @SerializedName("deals"                      ) var deals                      : ArrayList<Any>            = arrayListOf(),
         @SerializedName("canAddReview"               ) var canAddReview               : Boolean?                     = null,
         @SerializedName("canCompare"                 ) var canCompare                 : Boolean?                     = null,
         @SerializedName("canAddQna"                  ) var canAddQna                  : Boolean?                     = null,
@@ -139,30 +137,6 @@ data class GridProducts (
 
     )
 }
-
-data class SpecialOffers (
-
-    @SerializedName("special_offer_to_type" ) var specialOfferToType : String? = String(),
-    @SerializedName("promotions"            ) var promotions         : ArrayList<String>   = arrayListOf(),
-    @SerializedName("is_mail_in_rebate"     ) var isMailInRebate     : Int?                = null,
-    @SerializedName("is_coupon"             ) var isCoupon           : Int?                = null,
-    @SerializedName("is_second_day_air"     ) var isSecondDayAir     : Int?                = null,
-    @SerializedName("is_clearance"          ) var isClearance        : Int?                = null,
-    @SerializedName("is_instant_rebate"     ) var isInstantRebate    : Int?                = null,
-    @SerializedName("is_sale"               ) var isSale             : Int?                = null,
-    @SerializedName("is_free_gift"          ) var isFreeGift         : Int?                = null,
-    @SerializedName("is_best_rated"         ) var isBestRated        : Int?                = null,
-    @SerializedName("is_new"                ) var isNew              : Int?                = null,
-    @SerializedName("is_seasonal"           ) var isSeasonal         : Int?                = null,
-    @SerializedName("is_outlet"             ) var isOutlet           : Int?                = null,
-    @SerializedName("is_shed"               ) var isShed             : Int?                = null,
-    @SerializedName("is_extra_cashback"     ) var isExtraCashback    : Int?                = null,
-    @SerializedName("is_members_only"       ) var isMembersOnly      : Int?                = null,
-    @SerializedName("is_blazin_deal"        ) var isBlazinDeal       : Int?                = null,
-    @SerializedName("primary"               ) var primary            : String?             = null,
-    @SerializedName("category"              ) var category           : Category?           = Category()
-
-)
 
 data class Category (
 

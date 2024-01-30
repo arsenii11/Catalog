@@ -26,6 +26,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.catalog.R
 import com.example.catalog.app.ui.catalog.categories.CategoriesListItem
+import com.example.catalog.app.ui.catalog.categories.MyTopAppBar
 import net.marcoromano.catalog.app.ui.catalog.itemslist.ItemsListViewModel
 
 
@@ -41,7 +42,9 @@ internal fun ItemsListScreen(navController: NavController) {
     }
     Scaffold(
         topBar = {
-            TopAppBar(title = { Text(text = stringResource(R.string.top_bar_name)) })
+            MyTopAppBar(
+                title = "Items",
+                onNavigateUp = { navController.navigateUp() })
         },
     ) { paddingValues ->
         Column(
@@ -58,21 +61,23 @@ internal fun ItemsListScreen(navController: NavController) {
 
                     // Render your UI based on the list of categories
                     LazyColumn {
-                        items.forEachIndexed{ index, listItem ->
+                        items.forEach { listItem ->
                             item {
-                                CategoriesListItem(listItem.title?:"No name") { }
+                                CategoriesListItem(listItem.title ?: "No name") { }
                             }
                         }
                     }
                 }
+
                 is ItemsListUiState.Error -> {
                     val errorMessage = (uiState as ItemsListUiState.Error).errorMessage
 
                     // Handle error state if needed
                     Text(text = errorMessage)
                 }
+
                 else -> {
-                    Box(modifier = Modifier.fillMaxSize()){
+                    Box(modifier = Modifier.fillMaxSize()) {
                         CircularProgressIndicator(
                             modifier = Modifier
                                 .padding(16.dp)
@@ -85,4 +90,5 @@ internal fun ItemsListScreen(navController: NavController) {
             }
 
         }
-    }}
+    }
+}

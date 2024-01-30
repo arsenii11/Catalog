@@ -26,7 +26,7 @@ suspend operator fun invoke(): ItemsListUiState {
         return ItemsListUiState.Items(
             items = this.map { itemsData ->
                 ItemsListUiState.Items.Item(
-                    title = itemsData.gridItemName,
+                    title = itemsData.fullName,
                     imageLink = itemsData.primaryImage,
                     price = itemsData.price
                 )
