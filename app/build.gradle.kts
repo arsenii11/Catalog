@@ -65,11 +65,7 @@ dependencies {
     implementation("androidx.compose.material3:material3-adaptive:1.0.0-alpha05")
     implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.0.0-alpha02")
 
-    //Glide
-    implementation ("com.github.bumptech.glide:glide:4.14.2")
-    // Skip this if you don't want to use integration libraries or configure Glide.
-    annotationProcessor ("com.github.bumptech.glide:compiler:4.14.2")
-
+    implementation("io.coil-kt:coil-compose:2.4.0")
 
 // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
