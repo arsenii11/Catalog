@@ -10,19 +10,7 @@ data class ItemsDO (
     @SerializedName("grid_size"                 ) var gridSize               : Int?              = null,
     @SerializedName("listPageGridType"          ) var listPageGridType       : String?           = null,
     @SerializedName("directDeals"               ) var directDeals            : ArrayList<String> = arrayListOf(),
-    @SerializedName("buy_direct_products_count" ) var buyDirectProductsCount : Int?              = null,
-    @SerializedName("total_variants"            ) var totalVariants          : Int?              = null,
-    @SerializedName("filtered_variants"         ) var filteredVariants       : Int?              = null,
-    @SerializedName("showRatings"               ) var showRatings            : Boolean?          = null,
-    @SerializedName("enableRatings"             ) var enableRatings          : Boolean?          = null,
-    @SerializedName("enablePriceRange"          ) var enablePriceRange       : Boolean?          = null,
-    @SerializedName("showPriceRange"            ) var showPriceRange         : Boolean?          = null,
-    @SerializedName("enablePriceRangeSlider"    ) var enablePriceRangeSlider : Boolean?          = null,
-    @SerializedName("showPriceRangeSlider"      ) var showPriceRangeSlider   : Boolean?          = null,
-    @SerializedName("showPricePerUomRange"      ) var showPricePerUomRange   : Boolean?          = null,
-    @SerializedName("gridType"                  ) var gridType               : String?           = null,
     @SerializedName("gridProducts"              ) var gridProducts           : GridProducts?     = GridProducts(),
-    @SerializedName("grid_config"               ) var gridConfig             : GridConfig?       = GridConfig()
 
 )
 
@@ -79,23 +67,6 @@ data class GridProducts (
         @SerializedName("elementDimensions"          ) var elementDimensions          : ElementDimensions?           = ElementDimensions(),
         @SerializedName("fullName"                   ) var fullName                   : String?                      = null,
         @SerializedName("shortName"                  ) var shortName                  : String?                      = null,
-        @SerializedName("hasVideo"                   ) var hasVideo                   : Boolean?                     = null,
-        @SerializedName("imageHeight"                ) var imageHeight                : String?                      = null,
-        @SerializedName("imageWidth"                 ) var imageWidth                 : String?                      = null,
-        @SerializedName("allVariantsAreOutlet"       ) var allVariantsAreOutlet       : Boolean?                     = null,
-        @SerializedName("allVariantsAreShed"         ) var allVariantsAreShed         : Boolean?                     = null,
-        @SerializedName("stores"                     ) var stores                     : ArrayList<String>            = arrayListOf(),
-        @SerializedName("promotion"                  ) var promotion                  : ArrayList<String>            = arrayListOf(),
-        @SerializedName("bundleData"                 ) var bundleData                 : ArrayList<String>            = arrayListOf(),
-        @SerializedName("hasOptions"                 ) var hasOptions                 : Int?                         = null,
-        @SerializedName("isSegmentSalePriceHidden"   ) var isSegmentSalePriceHidden   : Boolean?                     = null,
-        @SerializedName("isCallToOrder"              ) var isCallToOrder              : Int?                         = null,
-        @SerializedName("isOrderable"                ) var isOrderable                : Boolean?                     = null,
-        @SerializedName("isMadeInUsa"                ) var isMadeInUsa                : Int?                         = null,
-        @SerializedName("isOutlet"                   ) var isOutlet                   : Boolean?                     = null,
-        @SerializedName("isShed"                     ) var isShed                     : Boolean?                     = null,
-        @SerializedName("isBuyDirect"                ) var isBuyDirect                : Boolean?                     = null,
-        @SerializedName("listPrice"                  ) var listPrice                  : Double?                      = null,
         @SerializedName("price"                      ) var price                      : Double?                      = null,
         @SerializedName("isPriceAfterRebate"         ) var isPriceAfterRebate         : Boolean?                     = null,
         @SerializedName("primaryImage"               ) var primaryImage               : String?                      = null,
@@ -144,11 +115,5 @@ data class Category (
     @SerializedName("name"       ) var name       : String? = null,
     @SerializedName("lev"        ) var lev        : String? = null,
     @SerializedName("url"        ) var url        : String? = null
-
-)
-
-data class GridConfig (
-
-    @SerializedName("size" ) var size : Int? = null
 
 )

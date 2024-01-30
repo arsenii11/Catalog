@@ -74,6 +74,9 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
     implementation("androidx.test:core-ktx:1.5.0")
 
+    //Jsoup
+    implementation ("org.jsoup:jsoup:1.17.2")
+
 // LifeCycle
     val lifecycle_version = "2.5.1"
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
@@ -83,6 +86,7 @@ dependencies {
 // Serialization
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
 
+    implementation ("com.squareup.retrofit2:converter-moshi:2.4.0")
 // Jetpack Compose
     val compose_version = "1.4.2"
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07")

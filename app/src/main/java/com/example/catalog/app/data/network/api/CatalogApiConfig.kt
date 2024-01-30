@@ -22,9 +22,9 @@ interface CatalogApiConfig {
     ): Response<ItemsDO>
 
 
-    @GET(Links.ITEM_URL)
+    @GET(Links.ITEM_URL )
     suspend fun getItemData(
         @Header("x-apikey") token: String = Links.API_KEY,
-        @Header("identifier") identifier: String,
+        @Path("identifier") identifier: String,
     ): Response<ItemDetailsDO>
 }

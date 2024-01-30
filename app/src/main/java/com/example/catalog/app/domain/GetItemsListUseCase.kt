@@ -28,6 +28,7 @@ suspend operator fun invoke(categoryId:String): ItemsListUiState {
                 ItemsListUiState.Items.Item(
                     title = itemsData.fullName,
                     imageLink = itemsData.primaryImage,
+                    url = itemsData.url,
                     price = itemsData.price
                 )
             }

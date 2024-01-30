@@ -32,9 +32,13 @@ import coil.compose.AsyncImage
 import com.example.catalog.R
 import com.example.catalog.app.ui.catalog.categories.MyTopAppBar
 import net.marcoromano.catalog.app.ui.catalog.itemslist.ItemsListViewModel
+import java.net.URLDecoder
 
 @Composable
 internal fun ItemsListScreen(navController: NavController, categoryName:String?, categoryId:String?) {
+
+    val categoryNameDecoded = URLDecoder.decode(categoryName, "UTF-8");
+
     val vm = hiltViewModel<ItemsListViewModel>()
     val uiState by vm.myResponse.observeAsState()
 
@@ -52,7 +56,7 @@ internal fun ItemsListScreen(navController: NavController, categoryName:String?,
     Scaffold(
         topBar = {
             MyTopAppBar(
-                title = categoryName?:"Items",
+                title = categoryNameDecoded?:"Items",
                 onNavigateUp = { navController.navigateUp() })
         },
     ) { paddingValues ->
@@ -72,7 +76,7 @@ internal fun ItemsListScreen(navController: NavController, categoryName:String?,
                     LazyColumn {
                         items.forEach { listItem ->
                             item {
-                                ItemsListItem(listItem ) { }
+                                ItemsListItem(listItem ) {navController.navigate("details/${listItem.url}") }
                             }
                         }
                     }
@@ -86,15 +90,14 @@ internal fun ItemsListScreen(navController: NavController, categoryName:String?,
                 }
 
                 else -> {
-                    Box(modifier = Modifier.fillMaxSize()) {
+                    Box(modifier = Modifier.fillMaxSize()){
                         CircularProgressIndicator(
                             modifier = Modifier
                                 .padding(16.dp)
                                 .align(Alignment.Center)
                                 .size(50.dp),
                             color = MaterialTheme.colorScheme.primary
-                        )
-                    }
+                        )}
                 }
             }
 
@@ -118,8 +121,8 @@ fun ItemsListItem(item: ItemsListUiState.Items.Item, onItemClicked: () -> Unit) 
             AsyncImage(
                 modifier = Modifier.size(70.dp),
                 model = "http://images1.opticsplanet.com/120-90-ffffff/${item.imageLink}",
-                placeholder = painterResource(id = R.drawable.ic_launcher_background),
-                error = painterResource(id = R.drawable.ic_launcher_background),
+                placeholder = painterResource(id = R.drawable.image_placeholder),
+                error = painterResource(id = R.drawable.image_placeholder),
                 contentDescription = "Logo of product",
             )
 

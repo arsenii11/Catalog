@@ -1,14 +1,11 @@
 package com.example.catalog.app.data.network.model
 
-data class ItemDetailsDO(
-    val elements: List<ProductElement>
-)
+import com.google.gson.annotations.SerializedName
 
-data class ProductElement(
-    val productId: String,
-    val url: String,
-    val shortName: String,
-    val primaryImage: String,
-    val has_options: String,
-    val free_shipping: String
+data class ItemDetailsDO(
+    @SerializedName("full_name") var fullName: String = "",
+    @SerializedName("short_name") var shortName: String = "",
+    @SerializedName("primary_image") var primaryImage:  String = "",
+    @SerializedName("min_sale_price") var price: Double = 0.0,
+    @SerializedName("description") var description: String = "",
 )

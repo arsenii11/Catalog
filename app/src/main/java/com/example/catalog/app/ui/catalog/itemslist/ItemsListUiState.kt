@@ -9,6 +9,7 @@ sealed class ItemsListUiState {
     data class Item(
         val title: String?,
         val imageLink: String?,
+        val url: String?,
         val price: Double?,
     ): ItemsListUiState()
     }

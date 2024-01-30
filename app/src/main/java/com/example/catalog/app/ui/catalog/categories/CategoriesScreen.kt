@@ -34,6 +34,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.catalog.R
+import okio.utf8Size
+import java.net.URLEncoder
 import androidx.compose.material3.IconButton as IconButton1
 
 
@@ -86,7 +88,7 @@ internal fun CategoriesScreen(navController: NavController) {
             LazyColumn {
              categories.forEach{ listItem ->
                 item {
-                    CategoriesListItem(listItem.name) { navController.navigate("items/${listItem.name}/${listItem.url}") }
+                    CategoriesListItem(listItem.name) { navController.navigate("items/${URLEncoder.encode(listItem.name, "UTF-8")}/${listItem.url}") }
                 }
               }
             }
